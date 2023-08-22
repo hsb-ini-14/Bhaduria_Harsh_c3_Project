@@ -2,6 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,4 +70,21 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void getting_order_for_restaurant() throws restaurantNotFoundException
+    {
+        Restaurant restaurant = implementRestaurant();
+
+        List<String> orderList = new ArrayList<String>();
+        orderList.add("Sweet corn soup");
+        Order order = new Order();
+
+        order.setOrder(orderList);
+
+        order.setRestaurantName(restaurant.getName());
+
+        assertEquals(orderList,order.getOrder());
+
+    }
+
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class RestaurantService {
     private static List<Restaurant> restaurants = new ArrayList<>();
+    Order order = new Order();
 
     public Restaurant findRestaurantByName(String restaurantName){
 
@@ -32,4 +33,11 @@ public class RestaurantService {
     public List<Restaurant> getRestaurants() {
         return restaurants;
     }
+
+    public List<String> getOrder()
+    {
+        List<String> orderList = order.getOrder();
+        return orderList;
+    }
+
 }
